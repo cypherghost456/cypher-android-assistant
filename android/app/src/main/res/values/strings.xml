@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Agent Cypher</string>
+    <string name="status_initializing">Initializing Agent Cypher…</string>
+    <string name="status_extracting_bootstrap">Extracting environment…</string>
+    <string name="status_installing_packages">Installing packages (first run)…</string>
+    <string name="status_installing_codex">Installing Cypher Core…</string>
+    <string name="status_starting_server">Starting Cypher Gateway…</string>
+    <string name="status_waiting_server">Waiting for server…</string>
+    <string name="api_key_title">AI Provider API Key</string>
+    <string name="api_key_message">Enter your API key (OpenAI, Gemini, Anthropic, etc.) to use Cypher.</string>
+    <string name="api_key_hint">Enter API key…</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+    <string name="error_title">Cypher Error</string>
+    <string name="error_bootstrap">Failed to set up the environment. Please try again.</string>
+    <string name="error_server">Failed to start Cypher server.</string>
+    <string name="retry">Retry</string>
+</resources>

@@ -1,0 +1,32 @@
+{
+  "active_provider": "openai",
+  "owner": "Sumair (Cypher Ghost)",
+  "assistant_name": "Cypher",
+  "providers": {
+    "openai": {
+      "model": "gpt-4o",
+      "api_base": "https://api.openai.com/v1",
+      "requires_key": true
+    },
+    "ollama": {
+      "model": "llama3",
+      "api_base": "http://127.0.0.1:11434",
+      "requires_key": false
+    },
+    "gemini": {
+      "model": "gemini-1.5-pro",
+      "api_base": "https://generativelanguage.googleapis.com/v1beta",
+      "requires_key": true
+    },
+    "anthropic": {
+      "model": "claude-3-5-sonnet",
+      "api_base": "https://api.anthropic.com/v1",
+      "requires_key": true
+    },
+    "nvidia": {
+      "model": "nvidia/nemotron-4-34b-instruct",
+      "api_base": "https://integrate.api.nvidia.com/v1",
+      "requires_key": true
+    }
+  }
+}
