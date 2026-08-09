@@ -2,9 +2,7 @@ name: Build Cypher APK
 
 on:
   push:
-    branches: [ main, master ]
-  pull_request:
-    branches: [ main, master ]
+    branches: [ main ]
 
 jobs:
   build:
@@ -23,18 +21,16 @@ jobs:
       - name: Setup Android SDK
         uses: android-actions/setup-android@v3
 
-      - name: Grant execute permission for gradlew
-        run: |
-          cd android
-          chmod +x gradlew
+      - name: Grant permission
+        run: chmod +x ./apps/android/gradlew
 
-      - name: Build Debug APK with Gradle
+      - name: Build APK
         run: |
-          cd android
+          cd apps/android
           ./gradlew assembleDebug --no-daemon
 
-      - name: Upload Debug APK
+      - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: cypher-debug-apk
-          path: android/app/build/outputs/apk/debug/app-debug.apk
+          path: apps/android/app/build/outputs/apk/debug/app-debug.apk
