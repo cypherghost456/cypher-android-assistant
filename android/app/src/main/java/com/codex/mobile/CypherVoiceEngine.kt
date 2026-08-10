@@ -2,6 +2,7 @@ package com.codex.mobile
 
 import android.content.Context
 import android.content.Intent
+import android.os.Bundle
 import android.speech.RecognitionListener
 import android.speech.RecognizerIntent
 import android.speech.SpeechRecognizer
@@ -11,7 +12,10 @@ import java.util.Locale
 
 class CypherVoiceEngine(private val context: Context, private val onResult: (String) -> Unit) : TextToSpeech.OnInitListener {
 
-    private const val TAG = "CypherVoiceEngine"
+    companion object {
+        private const val TAG = "CypherVoiceEngine"
+    }
+
     private var tts: TextToSpeech? = null
     private var speechRecognizer: SpeechRecognizer? = null
     private var isListening = false
