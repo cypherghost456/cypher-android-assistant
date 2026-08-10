@@ -1,4 +1,4 @@
-name: Build Cypher APK
+name: Build Cypher AI Agent APK
 
 on:
   push:
@@ -11,12 +11,12 @@ permissions:
   contents: read
 
 concurrency:
-  group: build-cypher-apk-${{ github.ref }}
+  group: build-cypher-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
   build:
-    name: Assemble debug APKs
+    name: Assemble APKs
     runs-on: ubuntu-latest
     timeout-minutes: 45
 
@@ -34,21 +34,39 @@ jobs:
       - name: Setup Android SDK
         uses: android-actions/setup-android@v3
 
-      - name: Install Android SDK packages
-        run: sdkmanager 'platforms;android-37' 'build-tools;36.0.0'
+      - name: Accept Android Licenses
+        run: yes | sdkmanager --licenses
 
-      - name: Enable Gradle wrappers
-        run: chmod +x ./gradlew ./apps/android/gradlew
+      - name: Install SDK Components
+        run: sdkmanager 'platforms;android-35' 'build-tools;35.0.0' 'platform-tools'
 
-      - name: Build APK
+      - name: Make Gradle Executable
+        run: chmod +x ./android/gradlew
+
+      - name: Build Debug APK
+        working-directory: ./android
         run: ./gradlew assembleDebug --no-daemon --stacktrace
 
-      - name: Verify APK outputs
-        run: test -n "$(find apps/android/app/build/outputs/apk -type f -name '*.apk' -print -quit)"
+      - name: Build Release APK
+        working-directory: ./android
+        run: ./gradlew assembleRelease --no-daemon --stacktrace
 
-      - name: Upload APKs
+      - name: Verify APK Outputs
+        run: |
+          test -f android/app/build/outputs/apk/debug/app-debug.apk
+          test -f android/app/build/outputs/apk/release/app-release-unsigned.apk
+          echo "APK build verification passed"
+
+      - name: Upload Debug APK
         uses: actions/upload-artifact@v4
         with:
-          name: cypher-debug-apks
-          path: apps/android/app/build/outputs/apk/**/*.apk
+          name: cypher-debug-apk
+          path: android/app/build/outputs/apk/debug/app-debug.apk
           if-no-files-found: error
+
+      - name: Upload Release APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypher-release-apk
+          path: android/app/build/outputs/apk/release/app-release-unsigned.apk
+          if-no-files-found: warn
