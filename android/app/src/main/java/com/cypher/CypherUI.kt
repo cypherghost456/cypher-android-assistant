@@ -84,7 +84,7 @@ fun CypherSiriScreen(context: android.content.Context) {
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(140px.dp)
+                    .height(140.dp)
                     .background(
                         Brush.verticalGradient(
                             colors = listOf(Color(0xFF0D1527), Color(0xFF050B14))
