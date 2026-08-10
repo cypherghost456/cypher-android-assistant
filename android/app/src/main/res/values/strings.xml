@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Agent Cypher</string>
-    <string name="status_initializing">Initializing Agent Cypher…</string>
+    <string name="app_name">Cypher AI Agent</string>
+    <string name="status_initializing">Initializing Cypher…</string>
     <string name="status_extracting_bootstrap">Extracting environment…</string>
     <string name="status_installing_packages">Installing packages (first run)…</string>
     <string name="status_installing_codex">Installing Cypher Core…</string>
@@ -16,4 +16,16 @@
     <string name="error_bootstrap">Failed to set up the environment. Please try again.</string>
     <string name="error_server">Failed to start Cypher server.</string>
     <string name="retry">Retry</string>
+    <string name="hint_message">Message Cypher…</string>
+    <string name="hint_voice">Tap to speak</string>
+    <string name="action_send">Send</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_history">History</string>
+    <string name="action_tools">Tools</string>
+    <string name="action_voice">Voice</string>
+    <string name="action_stop">Stop</string>
+    <string name="notification_channel_name">Cypher Agent Service</string>
+    <string name="notification_channel_desc">Keeps the AI agent running in background</string>
+    <string name="notification_title">Cypher is active</string>
+    <string name="notification_text">Agent ready — tap to open</string>
 </resources>
