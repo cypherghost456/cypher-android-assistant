@@ -6,11 +6,11 @@ plugins {
 }
 
 android {
-    namespace = "com.cypherghost.agent"
+    namespace = "com.codex.mobile"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.cypherghost.agent"
+        applicationId = "com.codex.mobile"
         minSdk = 26
         targetSdk = 35
         versionCode = 3
